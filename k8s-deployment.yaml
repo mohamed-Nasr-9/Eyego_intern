@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logs-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logs-service
+  template:
+    metadata:
+      labels:
+        app: logs-service
+    spec:
+      containers:
+        - name: logs-service
+          image: your-docker-username/event-logs-service:latest
+          ports:
+            - containerPort: 3000
